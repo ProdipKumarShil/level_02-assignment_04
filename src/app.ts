@@ -14,15 +14,6 @@ app.get('/', (req, res) => {
   res.send("Server is running")
 })
 
-app.get('/api/user', async (req: Request, res: Response) => {
-  try {
-    const users = await prisma.user.findMany()
-    res.json(users)
-  } catch (error) {
-    console.log(error)
-  }
-})
-
 app.use('/api/auth', authRouter)
 
 app.use(globalErrorHandle)

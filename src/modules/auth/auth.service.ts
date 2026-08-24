@@ -66,3 +66,7 @@ export async function loginUser(input: LoginInput) {
     ...createTokenPair({email: user.email, id: user.id, role: user.role})
   }
 }
+
+export function getCurrentUser(user: UserJwtPayload) {
+  return  
+}

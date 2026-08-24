@@ -24,3 +24,7 @@ export const login = catchAsync(async (req: Request, res: Response) => {
     }
   })
 })
+
+export const currentUser = catchAsync(async (req: Request, res: Response) => {
+  console.log({headers: req.headers, body: req.body}) 
+})

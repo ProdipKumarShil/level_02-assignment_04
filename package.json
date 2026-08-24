@@ -10,6 +10,7 @@
     "build": "prisma generate && tsup",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset",
     "deploy": "npm run build && vercel --prod",
     "db:seed": "prisma db seed",
     "webhook:stripe": "stripe listen --forward-to localhost:5000/webhooks"
