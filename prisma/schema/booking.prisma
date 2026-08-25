@@ -1,0 +1,26 @@
+model Booking {
+  bookingId      String            @id @default(uuid())
+  user_id        String
+  user           User              @relation("UserBookings", fields: [user_id], references: [userId], onDelete: Cascade)
+  service_id     String
+  service        Service           @relation(fields: [service_id], references: [serviceId], onDelete: Cascade)
+  technician_id  String
+  technician     TechnicianProfile @relation("TechnicianBookings", fields: [technician_id], references: [technicianId], onDelete: Cascade)
+  status         BookingStatus     @default(PENDING)
+  bookingDate    DateTime
+  serviceAddress String
+  totalAmount    Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  payments Payment[]
+
+  @@map("bookings")
+}
+
+enum BookingStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}

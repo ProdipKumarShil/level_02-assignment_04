@@ -1,0 +1,30 @@
+model Payment {
+  paymentId      String          @id @default(uuid())
+  transaction_id String          @unique
+  booking_id     String
+  booking        Booking         @relation(fields: [booking_id], references: [bookingId], onDelete: Cascade)
+  amount         Float
+  method         PaymentMethod
+  provider       PaymentProvider
+  status         PaymentStatus   @default(PENDING)
+
+  paidAt DateTime @default(now())
+}
+
+enum PaymentMethod {
+  CARD
+  BANK
+  MOBILE_BANKING
+  WALLET
+}
+
+enum PaymentProvider {
+  STRIPE
+  SSL_COMMERZ
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}

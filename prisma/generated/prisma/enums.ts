@@ -9,6 +9,42 @@
 * 🟢 You can import this file directly.
 */
 
+export const BookingStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED'
+} as const
+
+export type BookingStatus = (typeof BookingStatus)[keyof typeof BookingStatus]
+
+
+export const PaymentMethod = {
+  CARD: 'CARD',
+  BANK: 'BANK',
+  MOBILE_BANKING: 'MOBILE_BANKING',
+  WALLET: 'WALLET'
+} as const
+
+export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod]
+
+
+export const PaymentProvider = {
+  STRIPE: 'STRIPE',
+  SSL_COMMERZ: 'SSL_COMMERZ'
+} as const
+
+export type PaymentProvider = (typeof PaymentProvider)[keyof typeof PaymentProvider]
+
+
+export const PaymentStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED'
+} as const
+
+export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
+
+
 export const Role = {
   CUSTOMER: 'CUSTOMER',
   TECHNICIAN: 'TECHNICIAN',

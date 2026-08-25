@@ -51,6 +51,12 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
+  Booking: 'Booking',
+  Category: 'Category',
+  Payment: 'Payment',
+  Review: 'Review',
+  Service: 'Service',
+  TechnicianProfile: 'TechnicianProfile',
   User: 'User'
 } as const
 
@@ -68,6 +74,85 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const BookingScalarFieldEnum = {
+  bookingId: 'bookingId',
+  user_id: 'user_id',
+  service_id: 'service_id',
+  technician_id: 'technician_id',
+  status: 'status',
+  bookingDate: 'bookingDate',
+  serviceAddress: 'serviceAddress',
+  totalAmount: 'totalAmount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BookingScalarFieldEnum = (typeof BookingScalarFieldEnum)[keyof typeof BookingScalarFieldEnum]
+
+
+export const CategoryScalarFieldEnum = {
+  categoryId: 'categoryId',
+  name: 'name',
+  description: 'description'
+} as const
+
+export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  paymentId: 'paymentId',
+  transaction_id: 'transaction_id',
+  booking_id: 'booking_id',
+  amount: 'amount',
+  method: 'method',
+  provider: 'provider',
+  status: 'status',
+  paidAt: 'paidAt'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const ReviewScalarFieldEnum = {
+  reviewId: 'reviewId',
+  user_id: 'user_id',
+  technician_id: 'technician_id',
+  reviewText: 'reviewText',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const ServiceScalarFieldEnum = {
+  serviceId: 'serviceId',
+  technician_id: 'technician_id',
+  category_id: 'category_id',
+  title: 'title',
+  description: 'description',
+  price: 'price',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+export const TechnicianProfileScalarFieldEnum = {
+  technicianId: 'technicianId',
+  user_id: 'user_id',
+  bio: 'bio',
+  location: 'location',
+  experience: 'experience',
+  rating: 'rating',
+  isAvailable: 'isAvailable'
+} as const
+
+export type TechnicianProfileScalarFieldEnum = (typeof TechnicianProfileScalarFieldEnum)[keyof typeof TechnicianProfileScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {

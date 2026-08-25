@@ -7,8 +7,15 @@ model User {
   phone     String?
   address   String?
   isBanned  Boolean  @default(false)
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
+  technicianProfiles TechnicianProfile?
+  bookings Booking[] @relation("UserBookings")
+
+  @@map("users")
+  reviews Review[] @relation("UserReviews")
 }
 
 enum Role {
