@@ -304,7 +304,7 @@ export type TechnicianProfileCreateInput = {
   experience?: string | null
   rating?: number | null
   isAvailable?: boolean
-  user: Prisma.UserCreateNestedOneWithoutTechnicianProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutTechnicianProfileInput
   services?: Prisma.ServiceCreateNestedManyWithoutTechnicianInput
   bookings?: Prisma.BookingCreateNestedManyWithoutTechnicianInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutTechnicianInput
@@ -330,7 +330,7 @@ export type TechnicianProfileUpdateInput = {
   experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfileNestedInput
   services?: Prisma.ServiceUpdateManyWithoutTechnicianNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutTechnicianNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutTechnicianNestedInput
@@ -515,7 +515,7 @@ export type TechnicianProfileCreateWithoutBookingsInput = {
   experience?: string | null
   rating?: number | null
   isAvailable?: boolean
-  user: Prisma.UserCreateNestedOneWithoutTechnicianProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutTechnicianProfileInput
   services?: Prisma.ServiceCreateNestedManyWithoutTechnicianInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutTechnicianInput
 }
@@ -555,7 +555,7 @@ export type TechnicianProfileUpdateWithoutBookingsInput = {
   experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfileNestedInput
   services?: Prisma.ServiceUpdateManyWithoutTechnicianNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutTechnicianNestedInput
 }
@@ -579,7 +579,7 @@ export type TechnicianProfileCreateWithoutReviewsInput = {
   experience?: string | null
   rating?: number | null
   isAvailable?: boolean
-  user: Prisma.UserCreateNestedOneWithoutTechnicianProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutTechnicianProfileInput
   services?: Prisma.ServiceCreateNestedManyWithoutTechnicianInput
   bookings?: Prisma.BookingCreateNestedManyWithoutTechnicianInput
 }
@@ -619,7 +619,7 @@ export type TechnicianProfileUpdateWithoutReviewsInput = {
   experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfileNestedInput
   services?: Prisma.ServiceUpdateManyWithoutTechnicianNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutTechnicianNestedInput
 }
@@ -643,7 +643,7 @@ export type TechnicianProfileCreateWithoutServicesInput = {
   experience?: string | null
   rating?: number | null
   isAvailable?: boolean
-  user: Prisma.UserCreateNestedOneWithoutTechnicianProfilesInput
+  user: Prisma.UserCreateNestedOneWithoutTechnicianProfileInput
   bookings?: Prisma.BookingCreateNestedManyWithoutTechnicianInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutTechnicianInput
 }
@@ -683,7 +683,7 @@ export type TechnicianProfileUpdateWithoutServicesInput = {
   experience?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   isAvailable?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfilesNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutTechnicianProfileNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutTechnicianNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutTechnicianNestedInput
 }

@@ -5,9 +5,8 @@ model Review {
   technician_id String
   technician    TechnicianProfile @relation("TechnicianReviews", fields: [technician_id], references: [technicianId], onDelete: Cascade)
   reviewText    String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
 
   @@map("reviews")
 }

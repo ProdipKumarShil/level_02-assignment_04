@@ -222,7 +222,7 @@ export type UserWhereInput = {
   isBanned?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  technicianProfiles?: Prisma.XOR<Prisma.TechnicianProfileNullableScalarRelationFilter, Prisma.TechnicianProfileWhereInput> | null
+  technicianProfile?: Prisma.XOR<Prisma.TechnicianProfileNullableScalarRelationFilter, Prisma.TechnicianProfileWhereInput> | null
   bookings?: Prisma.BookingListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
 }
@@ -238,7 +238,7 @@ export type UserOrderByWithRelationInput = {
   isBanned?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  technicianProfiles?: Prisma.TechnicianProfileOrderByWithRelationInput
+  technicianProfile?: Prisma.TechnicianProfileOrderByWithRelationInput
   bookings?: Prisma.BookingOrderByRelationAggregateInput
   reviews?: Prisma.ReviewOrderByRelationAggregateInput
 }
@@ -257,7 +257,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isBanned?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  technicianProfiles?: Prisma.XOR<Prisma.TechnicianProfileNullableScalarRelationFilter, Prisma.TechnicianProfileWhereInput> | null
+  technicianProfile?: Prisma.XOR<Prisma.TechnicianProfileNullableScalarRelationFilter, Prisma.TechnicianProfileWhereInput> | null
   bookings?: Prisma.BookingListRelationFilter
   reviews?: Prisma.ReviewListRelationFilter
 }, "userId" | "email">
@@ -305,7 +305,7 @@ export type UserCreateInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
   bookings?: Prisma.BookingCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
 }
@@ -321,7 +321,7 @@ export type UserUncheckedCreateInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
 }
@@ -337,7 +337,7 @@ export type UserUpdateInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
 }
@@ -353,7 +353,7 @@ export type UserUncheckedUpdateInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -469,18 +469,18 @@ export type UserUpdateOneRequiredWithoutReviewsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewsInput, Prisma.UserUpdateWithoutReviewsInput>, Prisma.UserUncheckedUpdateWithoutReviewsInput>
 }
 
-export type UserCreateNestedOneWithoutTechnicianProfilesInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfilesInput, Prisma.UserUncheckedCreateWithoutTechnicianProfilesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTechnicianProfilesInput
+export type UserCreateNestedOneWithoutTechnicianProfileInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfileInput, Prisma.UserUncheckedCreateWithoutTechnicianProfileInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTechnicianProfileInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutTechnicianProfilesNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfilesInput, Prisma.UserUncheckedCreateWithoutTechnicianProfilesInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTechnicianProfilesInput
-  upsert?: Prisma.UserUpsertWithoutTechnicianProfilesInput
+export type UserUpdateOneRequiredWithoutTechnicianProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfileInput, Prisma.UserUncheckedCreateWithoutTechnicianProfileInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTechnicianProfileInput
+  upsert?: Prisma.UserUpsertWithoutTechnicianProfileInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTechnicianProfilesInput, Prisma.UserUpdateWithoutTechnicianProfilesInput>, Prisma.UserUncheckedUpdateWithoutTechnicianProfilesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTechnicianProfileInput, Prisma.UserUpdateWithoutTechnicianProfileInput>, Prisma.UserUncheckedUpdateWithoutTechnicianProfileInput>
 }
 
 export type EnumRoleFieldUpdateOperationsInput = {
@@ -498,7 +498,7 @@ export type UserCreateWithoutBookingsInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
 }
 
@@ -513,7 +513,7 @@ export type UserUncheckedCreateWithoutBookingsInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -544,7 +544,7 @@ export type UserUpdateWithoutBookingsInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
 }
 
@@ -559,7 +559,7 @@ export type UserUncheckedUpdateWithoutBookingsInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -574,7 +574,7 @@ export type UserCreateWithoutReviewsInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileCreateNestedOneWithoutUserInput
   bookings?: Prisma.BookingCreateNestedManyWithoutUserInput
 }
 
@@ -589,7 +589,7 @@ export type UserUncheckedCreateWithoutReviewsInput = {
   isBanned?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedCreateNestedOneWithoutUserInput
   bookings?: Prisma.BookingUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -620,7 +620,7 @@ export type UserUpdateWithoutReviewsInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUpdateOneWithoutUserNestedInput
   bookings?: Prisma.BookingUpdateManyWithoutUserNestedInput
 }
 
@@ -635,11 +635,11 @@ export type UserUncheckedUpdateWithoutReviewsInput = {
   isBanned?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  technicianProfiles?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
+  technicianProfile?: Prisma.TechnicianProfileUncheckedUpdateOneWithoutUserNestedInput
   bookings?: Prisma.BookingUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type UserCreateWithoutTechnicianProfilesInput = {
+export type UserCreateWithoutTechnicianProfileInput = {
   userId?: string
   name: string
   email: string
@@ -654,7 +654,7 @@ export type UserCreateWithoutTechnicianProfilesInput = {
   reviews?: Prisma.ReviewCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutTechnicianProfilesInput = {
+export type UserUncheckedCreateWithoutTechnicianProfileInput = {
   userId?: string
   name: string
   email: string
@@ -669,23 +669,23 @@ export type UserUncheckedCreateWithoutTechnicianProfilesInput = {
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutTechnicianProfilesInput = {
+export type UserCreateOrConnectWithoutTechnicianProfileInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfilesInput, Prisma.UserUncheckedCreateWithoutTechnicianProfilesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfileInput, Prisma.UserUncheckedCreateWithoutTechnicianProfileInput>
 }
 
-export type UserUpsertWithoutTechnicianProfilesInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutTechnicianProfilesInput, Prisma.UserUncheckedUpdateWithoutTechnicianProfilesInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfilesInput, Prisma.UserUncheckedCreateWithoutTechnicianProfilesInput>
+export type UserUpsertWithoutTechnicianProfileInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTechnicianProfileInput, Prisma.UserUncheckedUpdateWithoutTechnicianProfileInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTechnicianProfileInput, Prisma.UserUncheckedCreateWithoutTechnicianProfileInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutTechnicianProfilesInput = {
+export type UserUpdateToOneWithWhereWithoutTechnicianProfileInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutTechnicianProfilesInput, Prisma.UserUncheckedUpdateWithoutTechnicianProfilesInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTechnicianProfileInput, Prisma.UserUncheckedUpdateWithoutTechnicianProfileInput>
 }
 
-export type UserUpdateWithoutTechnicianProfilesInput = {
+export type UserUpdateWithoutTechnicianProfileInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -700,7 +700,7 @@ export type UserUpdateWithoutTechnicianProfilesInput = {
   reviews?: Prisma.ReviewUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutTechnicianProfilesInput = {
+export type UserUncheckedUpdateWithoutTechnicianProfileInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -766,7 +766,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isBanned?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  technicianProfiles?: boolean | Prisma.User$technicianProfilesArgs<ExtArgs>
+  technicianProfile?: boolean | Prisma.User$technicianProfileArgs<ExtArgs>
   bookings?: boolean | Prisma.User$bookingsArgs<ExtArgs>
   reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -813,7 +813,7 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"userId" | "name" | "email" | "password" | "role" | "phone" | "address" | "isBanned" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  technicianProfiles?: boolean | Prisma.User$technicianProfilesArgs<ExtArgs>
+  technicianProfile?: boolean | Prisma.User$technicianProfileArgs<ExtArgs>
   bookings?: boolean | Prisma.User$bookingsArgs<ExtArgs>
   reviews?: boolean | Prisma.User$reviewsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -824,7 +824,7 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    technicianProfiles: Prisma.$TechnicianProfilePayload<ExtArgs> | null
+    technicianProfile: Prisma.$TechnicianProfilePayload<ExtArgs> | null
     bookings: Prisma.$BookingPayload<ExtArgs>[]
     reviews: Prisma.$ReviewPayload<ExtArgs>[]
   }
@@ -1233,7 +1233,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  technicianProfiles<T extends Prisma.User$technicianProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$technicianProfilesArgs<ExtArgs>>): Prisma.Prisma__TechnicianProfileClient<runtime.Types.Result.GetResult<Prisma.$TechnicianProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  technicianProfile<T extends Prisma.User$technicianProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$technicianProfileArgs<ExtArgs>>): Prisma.Prisma__TechnicianProfileClient<runtime.Types.Result.GetResult<Prisma.$TechnicianProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   bookings<T extends Prisma.User$bookingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$bookingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviews<T extends Prisma.User$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1668,9 +1668,9 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.technicianProfiles
+ * User.technicianProfile
  */
-export type User$technicianProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$technicianProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the TechnicianProfile
    */

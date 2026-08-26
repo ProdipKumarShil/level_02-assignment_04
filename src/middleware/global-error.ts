@@ -1,7 +1,6 @@
 import type { ErrorRequestHandler } from "express";
 import { ZodError } from "zod";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
-import { PrismaClientValidationError } from "../../prisma/generated/prisma/internal/prismaNamespace";
+import { PrismaClientKnownRequestError, PrismaClientValidationError } from "@prisma/client/runtime/client";
 import jwt from "jsonwebtoken";
 
 import config from "../config";
