@@ -8,9 +8,10 @@ export const register = catchAsync(async (req: Request, res: Response) => {
   console.log(req.body)
   const input = registerSchema.parse(req.body)
   const result = await registerUser(input)
-  sendResponse(res, { message: "User register successfully", data: { user: result } }, 201)
-
+  const roleTitle = result.role === "TECHNICIAN" ? "Technician" : "User"
+  sendResponse(res, { message: `${roleTitle} register successfully`, data: { user: result } }, 201)
 })
+
 export const login = catchAsync(async (req: Request, res: Response) => {
   console.log(req.body)
   const input = loginSchema.parse(req.body)

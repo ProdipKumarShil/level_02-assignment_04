@@ -1,4 +1,4 @@
-import type { Role } from "../../prisma/generated/prisma/enums";
+import type { Role } from "../../generated/enums";
 import { AppError } from "../utils/app-error";
 import { catchAsync } from "../utils/catch-async";
 import { verifyAccessToken } from "../utils/jwt";
@@ -8,7 +8,6 @@ import { verifyAccessToken } from "../utils/jwt";
 const auth = (...roles: Role[]) =>
   catchAsync(async (req, _res, next) => {
     const authHeader = req.headers.authorization
-    console.log(authHeader)
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       throw new AppError(401, "Unauthorized - No token provided")

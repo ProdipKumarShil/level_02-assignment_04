@@ -13,6 +13,32 @@ function toJwtPayload(user: {
   return { id: user.id, email: user.email, role: user.role }
 }
 
+// export async function registerUser(input: RegisterInput) {
+//   const existingUser = await prisma.user.findUnique({
+//     where: { email: input.email }
+//   })
+
+//   if (existingUser) {
+//     throw new AppError(409, "Email already exists")
+//   }
+
+//   const hashedPassword = await bcrypt.hash(input.password, 10)
+
+//   const user = await prisma.user.create({
+//     data: {
+//       name: input.name,
+//       email: input.email,
+//       password: hashedPassword,
+//       role: input.role
+//     },
+//     omit: {
+//       password: true
+//     }
+//   })
+
+//   return user
+// }
+
 export async function registerUser(input: RegisterInput) {
   const existingUser = await prisma.user.findUnique({
     where: { email: input.email }
@@ -29,7 +55,15 @@ export async function registerUser(input: RegisterInput) {
       name: input.name,
       email: input.email,
       password: hashedPassword,
-      role: input.role
+      role: input.role,
+      ...(input.role === "TECHNICIAN" && {
+        technicianProfile: {
+          create: {}
+        }
+      })
+    },
+    include: {
+      technicianProfile: true
     },
     omit: {
       password: true
@@ -37,23 +71,25 @@ export async function registerUser(input: RegisterInput) {
   })
 
   return user
+
+
 }
 
 export async function loginUser(input: LoginInput) {
-  const user = await prisma.user.findUnique({where: {email: input.email}})
+  const user = await prisma.user.findUnique({ where: { email: input.email } })
 
-  if(!user){
+  if (!user) {
     throw new AppError(401, "Invalid email or password")
   }
 
   const passwordMatches = await bcrypt.compare(input.password, user.password)
 
-  if(!passwordMatches){
+  if (!passwordMatches) {
     throw new AppError(401, "Invalid email or password")
   }
 
   const safeUser = {
-    id: user.id,
+    id: user.userId,
     name: user.name,
     email: user.email,
     role: user.role,
@@ -63,10 +99,10 @@ export async function loginUser(input: LoginInput) {
 
   return {
     user: safeUser,
-    ...createTokenPair({email: user.email, id: user.id, role: user.role})
+    ...createTokenPair({ email: user.email, id: user.userId, role: user.role })
   }
 }
 
 export function getCurrentUser(user: UserJwtPayload) {
-  return  
+  return
 }
