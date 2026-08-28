@@ -1,11 +1,10 @@
 import type { Request, Response } from "express"
 import { catchAsync } from "../../utils/catch-async"
 import { loginSchema, registerSchema } from "./auth.validation"
-import { loginUser, registerUser } from "./auth.service"
+import { getCurrentUser, loginUser, registerUser } from "./auth.service"
 import { sendResponse } from "../../utils/send-response"
 
 export const register = catchAsync(async (req: Request, res: Response) => {
-  console.log(req.body)
   const input = registerSchema.parse(req.body)
   const result = await registerUser(input)
   const roleTitle = result.role === "TECHNICIAN" ? "Technician" : "User"
@@ -13,7 +12,6 @@ export const register = catchAsync(async (req: Request, res: Response) => {
 })
 
 export const login = catchAsync(async (req: Request, res: Response) => {
-  console.log(req.body)
   const input = loginSchema.parse(req.body)
   const result = await loginUser(input)
 
@@ -27,5 +25,12 @@ export const login = catchAsync(async (req: Request, res: Response) => {
 })
 
 export const currentUser = catchAsync(async (req: Request, res: Response) => {
-  console.log({headers: req.headers, body: req.body}) 
+  const user = req.user
+  const result = await getCurrentUser(user)
+
+
+  sendResponse(res, {
+    message: 'Profile retrieved successfully',
+    data: result
+  })
 })
