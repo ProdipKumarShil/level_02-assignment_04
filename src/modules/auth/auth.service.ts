@@ -13,31 +13,6 @@ function toJwtPayload(user: {
   return { id: user.id, email: user.email, role: user.role }
 }
 
-// export async function registerUser(input: RegisterInput) {
-//   const existingUser = await prisma.user.findUnique({
-//     where: { email: input.email }
-//   })
-
-//   if (existingUser) {
-//     throw new AppError(409, "Email already exists")
-//   }
-
-//   const hashedPassword = await bcrypt.hash(input.password, 10)
-
-//   const user = await prisma.user.create({
-//     data: {
-//       name: input.name,
-//       email: input.email,
-//       password: hashedPassword,
-//       role: input.role
-//     },
-//     omit: {
-//       password: true
-//     }
-//   })
-
-//   return user
-// }
 
 export async function registerUser(input: RegisterInput) {
   const existingUser = await prisma.user.findUnique({

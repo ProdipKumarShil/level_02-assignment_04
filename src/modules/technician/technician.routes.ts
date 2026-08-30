@@ -1,15 +1,16 @@
 import { Router } from "express";
 import auth from "../../middleware/auth";
-import { editTechnicianProfile } from "./technician.controller";
+import { editTechnicianProfileController, getAllTechniciansController, getTechnicianByIdController, updateAvailabilityController } from "./technician.controller";
 
 const technicianRouter = Router()
 
-// technicianRouter.get('/') // get all technicians
-// technicianRouter.get('/:id') // get a technician by id
+technicianRouter.get('/', getAllTechniciansController) // get all technicians
+technicianRouter.get('/:id', getTechnicianByIdController) // get a technician by id
 
-technicianRouter.patch('/profile', auth("ADMIN", "TECHNICIAN"), editTechnicianProfile) // update technician profile
-// technicianRouter.put('/availability') // Update Availability Slots
+technicianRouter.put('/profile', auth("ADMIN", "TECHNICIAN",), editTechnicianProfileController) // update technician profile
+technicianRouter.put('/availability', auth("TECHNICIAN"), updateAvailabilityController) // Update Availability Slots
 // technicianRouter.get('/bookings') // Get Technician's Bookings
 // technicianRouter.patch('/bookings/:id') // Update Booking Status (accept/decline/complete)
+
 
 export default technicianRouter
