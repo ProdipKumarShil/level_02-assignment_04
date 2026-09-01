@@ -7,6 +7,7 @@ import { globalErrorHandle } from './middleware/global-error'
 import technicianRouter from './modules/technician/technician.routes'
 import serviceRouter from './modules/service/service.routes'
 import adminRouter from './modules/admin/admin.route'
+import bookingRouter from './modules/booking/booking.routes'
 
 const app: Application = express()
 
@@ -21,6 +22,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/technician', technicianRouter)
 app.use('/api/services', serviceRouter)
 app.use('/api/admin', adminRouter)
+app.use('/api/bookings', bookingRouter)
 
 app.use(globalErrorHandle)
 app.use(notFoundHandler)
