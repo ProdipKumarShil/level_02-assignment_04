@@ -46,6 +46,19 @@ export const createBookingService = async(customerId: string, data: any) => {
       status: "PENDING"
     }
   })
+}
 
-  
+export const getAllBookingService = async() => {
+  const bookings = await prisma.booking.findMany({})
+  return bookings
+}
+
+export const getBookingByIdService = async(id: string) => {
+  const booking = await prisma.booking.findUnique({
+    where: {
+      bookingId: id
+    }
+  })
+
+  return booking
 }
