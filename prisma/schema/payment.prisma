@@ -1,7 +1,7 @@
 model Payment {
   paymentId      String          @id @default(uuid())
   transaction_id String          @unique
-  booking_id     String
+  booking_id     String          @unique @map("booking_id")
   booking        Booking         @relation(fields: [booking_id], references: [bookingId], onDelete: Cascade)
   amount         Float
   method         PaymentMethod
