@@ -6,7 +6,7 @@ import { AppError } from "../../utils/app-error";
 import type Stripe from "stripe";
 import { stripe } from "../../lib/stripe";
 import config from "../../config";
-import { checkoutSessionService, completePaymentService } from "./payment.service";
+import { checkoutSessionService, completePaymentService, getPaymentByIdService, getUserPaymentService } from "./payment.service";
 import prisma from "../../lib/prisma";
 
 export const webhookController = catchAsync(async (req: Request, res: Response) => {
@@ -55,4 +55,27 @@ export const checkoutController = catchAsync(async(req: Request, res: Response) 
     data: result
   })
 })
+
+export const getUserPaymentHistoryController = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.user!.id;
+
+  const result = await getUserPaymentService(userId);
+  sendResponse(res, {
+    message: "Payment history retrieved successfully",
+    data: result
+  })
+});
+
+export const getPaymentByIdController = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const userId = req.user!.id;
+  const userRole = req.user!.role;
+
+  const result = await getPaymentByIdService(userId, userRole, id as string);
+
+  sendResponse(res, {
+    message: "Payment history retrieved successfully",
+    data: result
+  })
+});
 
